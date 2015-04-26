@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Register to TheBileT"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/register_userNameText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_title"
+        android:text="User name: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/register_firstName"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_title"
+        android:layout_toRightOf="@id/register_userNameText"
+        android:hint="Login"/>
+
+    <TextView
+        android:id="@+id/register_passwordText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_userNameText"
+        android:text="Password: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_userNameText"
+        android:layout_toRightOf="@id/register_passwordText"
+        android:hint="Password"/>
+
+    <TextView
+        android:id="@+id/register_emailText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_passwordText"
+        android:text="Email: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/register_password"
+        android:layout_toRightOf="@id/register_emailText"
+        android:hint="Email"/>
+
+    <LinearLayout
+        android:id="@+id/register_buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@id/register_emailText"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/register_registerButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/register_emailText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:text="Register"/>
+
+        <Button
+            android:id="@+id/register_back"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/register_email"
+            android:layout_toRightOf="@id/register_registerButton"
+            android:layout_gravity="bottom"
+            android:text="Back"
+            android:onClick="goBack"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
