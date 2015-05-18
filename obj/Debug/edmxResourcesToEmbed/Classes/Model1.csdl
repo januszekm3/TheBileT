@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="use_thebiletModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PricePerHour" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Areas" FromRole="Areas" ToRole="Tickets" />
+  </EntityType>
+  <EntityType Name="AuthToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Token" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsGuard" Type="Boolean" Nullable="false" />
+    <Property Name="DeviceId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Controller" Relationship="Self.FK_AuthTokens_Controllers" FromRole="AuthTokens" ToRole="Controllers" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_AuthTokens_Drivers" FromRole="AuthTokens" ToRole="Drivers" />
+  </EntityType>
+  <EntityType Name="Controller">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AuthTokens" Relationship="Self.FK_AuthTokens_Controllers" FromRole="Controllers" ToRole="AuthTokens" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="AuthTokens" Relationship="Self.FK_AuthTokens_Drivers" FromRole="Drivers" ToRole="AuthTokens" />
+    <NavigationProperty Name="Purchases" Relationship="Self.FK_Purchases_Drivers" FromRole="Drivers" ToRole="Purchases" />
+    <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Drivers" FromRole="Drivers" ToRole="Tickets" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="TicketId" Type="Int32" Nullable="false" />
+    <Property Name="PurchasedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_Purchases_Drivers" FromRole="Purchases" ToRole="Drivers" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="RegistrationNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AreaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Area" Relationship="Self.FK_Tickets_Areas" FromRole="Tickets" ToRole="Areas" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_Tickets_Drivers" FromRole="Tickets" ToRole="Drivers" />
+  </EntityType>
+  <Association Name="FK_Tickets_Areas">
+    <End Role="Areas" Type="Self.Area" Multiplicity="1" />
+    <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthTokens_Controllers">
+    <End Role="Controllers" Type="Self.Controller" Multiplicity="1" />
+    <End Role="AuthTokens" Type="Self.AuthToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Controllers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthTokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AuthTokens_Drivers">
+    <End Role="Drivers" Type="Self.Driver" Multiplicity="1" />
+    <End Role="AuthTokens" Type="Self.AuthToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthTokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchases_Drivers">
+    <End Role="Drivers" Type="Self.Driver" Multiplicity="1" />
+    <End Role="Purchases" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Purchases">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tickets_Drivers">
+    <End Role="Drivers" Type="Self.Driver" Multiplicity="1" />
+    <End Role="Tickets" Type="Self.Ticket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drivers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tickets">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="use_thebiletEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Areas" EntityType="Self.Area" />
+    <EntitySet Name="AuthTokens" EntityType="Self.AuthToken" />
+    <EntitySet Name="Controllers" EntityType="Self.Controller" />
+    <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="Purchases" EntityType="Self.Purchase" />
+    <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+    <AssociationSet Name="FK_Tickets_Areas" Association="Self.FK_Tickets_Areas">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthTokens_Controllers" Association="Self.FK_AuthTokens_Controllers">
+      <End Role="Controllers" EntitySet="Controllers" />
+      <End Role="AuthTokens" EntitySet="AuthTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AuthTokens_Drivers" Association="Self.FK_AuthTokens_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="AuthTokens" EntitySet="AuthTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchases_Drivers" Association="Self.FK_Purchases_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="Purchases" EntitySet="Purchases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tickets_Drivers" Association="Self.FK_Tickets_Drivers">
+      <End Role="Drivers" EntitySet="Drivers" />
+      <End Role="Tickets" EntitySet="Tickets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

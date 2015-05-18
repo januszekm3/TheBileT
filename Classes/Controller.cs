@@ -7,24 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TheBiletApp.App_Code
+namespace TheBiletApp.Classes
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Area
+    public partial class Controller
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Area()
+        public Controller()
         {
-            this.Tickets = new HashSet<Ticket>();
+            this.AuthTokens = new HashSet<AuthToken>();
         }
     
         public int Id { get; set; }
-        public decimal StartPrice { get; set; }
-        public decimal PricePerHour { get; set; }
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public virtual ICollection<AuthToken> AuthTokens { get; set; }
     }
 }

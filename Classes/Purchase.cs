@@ -7,16 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TheBiletApp.App_Code
+namespace TheBiletApp.Classes
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Controller
+    public partial class Purchase
     {
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string PasswordHash { get; set; }
-        public string Email { get; set; }
+        public int DriverId { get; set; }
+        public int TicketId { get; set; }
+        public System.DateTime PurchasedDate { get; set; }
+        public decimal AmountPaid { get; set; }
+    
+        public virtual Driver Driver { get; set; }
     }
 }

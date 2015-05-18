@@ -80,58 +80,64 @@
     <Content Include="App_Code\ServiceException.cs" />
     <Content Include="App_Code\Ticket\Tickets.cs" />
     <Content Include="App_Code\Ticket\TicketUtils.cs" />
-    <Content Include="App_Code\Area.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\Controller.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\DataModel.Context.cs">
+    <Content Include="App_Code\Membership\TokenManager.cs" />
+    <Compile Include="Classes\Extensions\Ticket.cs" />
+    <Compile Include="Classes\Area.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\AuthToken.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Controller.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Driver.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\DataModel.cs">
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\DataModel.Designer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="App_Code\Driver.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\Purchase.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Code\Ticket.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Content>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Purchase.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Ticket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="web.ashx" />
-    <EntityDeploy Include="App_Code\DataModel.edmx">
+    <EntityDeploy Include="Classes\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="App_Code\DataModel.Context.tt">
+    <Content Include="Classes\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="App_Code\DataModel.edmx.diagram">
-      <DependentUpon>DataModel.edmx</DependentUpon>
+    <Content Include="Classes\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="App_Code\DataModel.tt">
+    <Content Include="Classes\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\Use.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -155,7 +161,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>30095</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:8288/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

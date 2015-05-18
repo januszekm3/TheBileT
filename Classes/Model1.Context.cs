@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TheBiletApp.App_Code
+namespace TheBiletApp.Classes
 {
     using System;
     using System.Data.Entity;
@@ -26,6 +26,7 @@ namespace TheBiletApp.App_Code
         }
     
         public virtual DbSet<Area> Areas { get; set; }
+        public virtual DbSet<AuthToken> AuthTokens { get; set; }
         public virtual DbSet<Controller> Controllers { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
