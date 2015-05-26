@@ -37,7 +37,7 @@ namespace TheBilet.Membership
             }
         }
 
-        public static String Authenticate(String username, String password)
+        public static String Authenticate(String username, String password, String deviceId)
         {
             using (var context = new use_thebiletEntities())
             {
@@ -60,7 +60,7 @@ namespace TheBilet.Membership
                 AuthToken NewToken = new AuthToken();
                 NewToken.UserId = User.Id;
                 NewToken.IsGuard = false;
-                NewToken.Token = GenerateAuthToken(username, password);
+                NewToken.Token = GenerateAuthToken(username, password, deviceId);
                 NewToken.ExpiresOn = DateTime.Now.AddYears(1);
 
                 context.AuthTokens.Add(NewToken);
@@ -70,7 +70,7 @@ namespace TheBilet.Membership
             }
         }
 
-        public static String AuthenticateController(String username, String password)
+        public static String AuthenticateController(String username, String password, String deviceId)
         {
             using (var context = new use_thebiletEntities())
             {
@@ -93,7 +93,7 @@ namespace TheBilet.Membership
                 AuthToken NewToken = new AuthToken();
                 NewToken.UserId = User.Id;
                 NewToken.IsGuard = true;
-                NewToken.Token = GenerateAuthToken(username, password);
+                NewToken.Token = GenerateAuthToken(username, password, deviceId);
                 NewToken.ExpiresOn = DateTime.Now.AddMonths(1);
 
                 context.AuthTokens.Add(NewToken);
@@ -111,10 +111,10 @@ namespace TheBilet.Membership
             return base64HashOutput;
         }
 
-        public static String GenerateAuthToken(string username, string password)
+        public static String GenerateAuthToken(string username, string password, string deviceId)
         {
             var sha1Provider = HashAlgorithm.Create("SHA512");
-            var binHash = sha1Provider.ComputeHash(System.Text.Encoding.Unicode.GetBytes(username + DateTime.Now + password));
+            var binHash = sha1Provider.ComputeHash(System.Text.Encoding.Unicode.GetBytes(username + DateTime.Now + password + deviceId));
             var base64HashOutput = Convert.ToBase64String(binHash);
 
             return base64HashOutput.Replace("=","").Replace("+","").Replace("-","").Replace("/","");

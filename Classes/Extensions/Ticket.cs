@@ -11,7 +11,7 @@ namespace TheBiletApp.Classes
         {
             get
             {
-                return StartDate < DateTime.Now && EndDate > DateTime.Now;
+                return EndDate > DateTime.Now;
             }
         }
 

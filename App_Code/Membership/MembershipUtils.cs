@@ -10,7 +10,7 @@ namespace TheBilet.Membership
         public static String VAR_USERNAME = "username";
         public static String VAR_PASSWORD = "password";
         public static String VAR_EMAIL = "email";
-
+        public static String VAR_DEVICEID = "deviceId";
 
         public static String RegisterAccount(HttpContext context)
         {
@@ -37,10 +37,10 @@ namespace TheBilet.Membership
                         return Membership.RegisterAccount(context.Request.Params[VAR_USERNAME].ToString(), context.Request.Params[VAR_PASSWORD].ToString(), context.Request.Params[VAR_EMAIL].ToString());
 
                     case ServiceCommand.login:
-                        return Membership.Authenticate(context.Request.Params[VAR_USERNAME].ToString(), context.Request.Params[VAR_PASSWORD].ToString());
+                        return Membership.Authenticate(context.Request.Params[VAR_USERNAME].ToString(), context.Request.Params[VAR_PASSWORD].ToString(), context.Request.Params[VAR_DEVICEID].ToString());
 
                     case ServiceCommand.loginController:
-                        return Membership.AuthenticateController(context.Request.Params[VAR_USERNAME].ToString(), context.Request.Params[VAR_PASSWORD].ToString());
+                        return Membership.AuthenticateController(context.Request.Params[VAR_USERNAME].ToString(), context.Request.Params[VAR_PASSWORD].ToString(), context.Request.Params[VAR_DEVICEID].ToString());
 
                     default:
                         return "Unknown command";

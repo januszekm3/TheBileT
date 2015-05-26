@@ -85,7 +85,7 @@ namespace TheBilet.Ticket
 
             using (var context = new use_thebiletEntities())
             {
-                var Query = context.Tickets.Where(s => s.DriverId == UserId).Where(s => s.StartDate < DateTime.Now).Where(s => s.EndDate > DateTime.Now);
+                var Query = context.Tickets.Where(s => s.DriverId == UserId).Where(s => s.EndDate > DateTime.Now).OrderBy(s => s.StartDate);
 
                 
                 JArray json = new JArray(from p in Query.ToList<TheBiletApp.Classes.
