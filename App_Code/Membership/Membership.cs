@@ -42,6 +42,22 @@ namespace TheBilet.Membership
             }
         }
 
+        public static String ResetPassword(String username, String email)
+        {
+            using (var context = new use_thebiletEntities())
+            {
+                var emailTestQuery = context.Drivers.Where(s => s.Email == email).Where(s => s.Username == username);
+
+                //Test email 
+                if (emailTestQuery.Count<Driver>() > 0)
+                    throw new ServiceException("There is no member with such username + email combination");
+
+                //All OK, send reset email
+
+                return "OK";
+            }
+        }
+
         public static String Authenticate(String username, String password, String deviceId)
         {
             using (var context = new use_thebiletEntities())
@@ -125,7 +141,7 @@ namespace TheBilet.Membership
             return base64HashOutput.Replace("=","").Replace("+","").Replace("-","").Replace("/","");
         }
 
-        public bool IsEmailValid(string emailaddress)
+        public static bool IsEmailValid(string emailaddress)
         {
             try
             {
