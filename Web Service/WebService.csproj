@@ -81,6 +81,7 @@
     <Content Include="App_Code\Ticket\Tickets.cs" />
     <Content Include="App_Code\Ticket\TicketUtils.cs" />
     <Content Include="App_Code\Membership\TokenManager.cs" />
+    <Content Include="App_Code\Mailer.cs" />
     <Compile Include="Classes\Extensions\Ticket.cs" />
     <Compile Include="Classes\Area.cs">
       <DependentUpon>Model1.tt</DependentUpon>

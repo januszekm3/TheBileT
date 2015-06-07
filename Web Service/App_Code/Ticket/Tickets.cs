@@ -70,7 +70,7 @@ namespace TheBilet.Ticket
                 if (Query.Count<TheBiletApp.Classes.Ticket>() <= 0)
                     throw new ServiceException("No parking ticket(s) for the specified registration number: " + registrationNumber);
 
-                Query = Query.Where(s => s.StartDate < DateTime.Now).Where(s => s.EndDate > DateTime.Now);
+                Query = Query.Where(s => s.StartDate <= DateTime.Now).Where(s => s.EndDate >= DateTime.Now);
 
                 if (Query.Count<TheBiletApp.Classes.Ticket>() <= 0)
                     throw new ServiceException("Parking ticket(s) expired");

@@ -53,6 +53,14 @@ namespace TheBilet.Membership
                     throw new ServiceException("There is no member with such username + email combination");
 
                 //All OK, send reset email
+                Driver Target = emailTestQuery.First<Driver>();
+
+                string NewPassword = ComputeHash(DateTime.Now + username);
+
+                Target.PasswordHash = ComputeHash(NewPassword);
+                context.SaveChanges();
+
+                TheBiletApp.App_Code.Mailer.SendPasswordEmail(email, NewPassword);
 
                 return "OK";
             }
@@ -154,5 +162,7 @@ namespace TheBilet.Membership
                 return false;
             }
         }
+
+       
     }
 }
