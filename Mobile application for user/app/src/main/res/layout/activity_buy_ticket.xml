@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/buyticket"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:text="Buy Ticket"
+        android:textSize="40sp"
+        android:textColor="#006600"/>
+
+    <TextView
+        android:id="@+id/licenseplateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/buyticket"
+        android:text="License plate: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+        //android:layout_alignBottom="@+id/buyticket"/>
+
+
+
+    <EditText
+        android:id="@+id/licenceplate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/buyticket"
+        android:layout_toRightOf="@id/licenseplateText"
+        android:hint="number"/>
+
+    <TextView
+        android:id="@+id/startdateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/licenseplateText"
+        android:text="Starting date: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/startdate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/licenseplateText"
+        android:layout_toRightOf="@id/startdateText"
+        android:hint="yyyy-mm-dd"/>
+
+    <TextView
+        android:id="@+id/startTimeText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/startdateText"
+        android:text="Starting time: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/startTime"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/startdateText"
+        android:layout_toRightOf="@id/startdateText"
+        android:hint="hh:mm:ss"/>
+
+    <TextView
+        android:id="@+id/enddateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/startTimeText"
+        android:text="Length: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/enddate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/startTimeText"
+        android:layout_toRightOf="@id/enddateText"
+        android:hint="hh:mm"/>
+
+    <TextView
+        android:id="@+id/areaText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/enddateText"
+        android:text="Park area: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/area"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/enddateText"
+        android:layout_toRightOf="@id/startdateText"
+        android:hint="area number"/>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@id/areaText"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/buyticketButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/areaText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:text="BUY"
+            android:onClick="onBuy"/>
+
+        <Button
+            android:id="@+id/buyticket_back"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/areaText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:text="BACK"
+            android:onClick="onBack"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

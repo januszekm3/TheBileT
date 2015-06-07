@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/activeticketsText"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:text="Active Tickets"
+        android:textSize="40sp"
+        android:textColor="#006600"/>
+
+    <TextView
+        android:id="@+id/chooseticketText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose ticket"
+        android:layout_below="@id/activeticketsText"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activeticketsText"
+        android:layout_toRightOf="@id/chooseticketText"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"/>
+
+    <TextView
+        android:id="@+id/activeTickets_licenseplateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/spinner"
+        android:text="License plate: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+    //android:layout_alignBottom="@+id/buyticket"/>
+
+
+
+    <TextView
+        android:id="@+id/activeTickets_licenceplate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/spinner"
+        android:layout_toRightOf="@id/activeTickets_licenseplateText"/>
+
+    <TextView
+        android:id="@+id/activeTickets_startdateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_licenseplateText"
+        android:text="Starting date: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:id="@+id/activeTickets_startdate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_licenseplateText"
+        android:layout_toRightOf="@id/activeTickets_startdateText"/>
+
+    <TextView
+        android:id="@+id/activeTickets_enddateText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_startdateText"
+        android:text="Ending date: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:id="@+id/activeTickets_enddate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_startdateText"
+        android:layout_toRightOf="@id/activeTickets_enddateText"/>
+
+    <TextView
+        android:id="@+id/activeTickets_areaText"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_enddateText"
+        android:text="Park area: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <TextView
+        android:id="@+id/activeTickets_area"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/activeTickets_enddateText"
+        android:layout_toRightOf="@id/activeTickets_startdateText"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/chooseticketText"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/activetickets_back"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/activeticketsText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:text="BACK"
+            android:onClick="onBack"/>
+    </LinearLayout>
+</RelativeLayout>

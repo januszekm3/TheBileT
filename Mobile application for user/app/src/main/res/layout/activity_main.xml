@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="TheBileT"
+                android:textSize="60sp"
+                android:textColor="#006600"/>
+
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="User name: "
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_below="@+id/logo"/>
+
+
+            <EditText
+                android:id="@+id/login"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/loginText"
+                android:hint="Login"
+                android:layout_below="@+id/logo"
+                android:imeOptions="actionDone"/>
+
+            <TextView
+                android:id="@+id/passwordText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/loginText"
+                android:text="Password: "
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/login"
+                android:layout_toRightOf="@id/passwordText"
+                android:hint="Password"
+                android:password="true"/>
+
+            <LinearLayout
+                android:id="@+id/buttonLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_below="@id/passwordText"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:id="@+id/loginButton"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/passwordText"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="bottom"
+                    android:text="Sign in"
+                    android:onClick="onLogin"/>
+
+                <Button
+                    android:id="@+id/registerButton"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/password"
+                    android:layout_toRightOf="@id/loginButton"
+                    android:layout_gravity="bottom"
+                    android:text="Register"
+                    android:onClick="register"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/forgotPassword"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/buttonLayout"
+                android:layout_centerHorizontal="true"
+                android:text="Forgot password?"
+                android:textColor="#000000"
+                android:background="@android:color/transparent"
+                style="?android:attr/borderlessButtonStyle"
+                android:onClick="forgotPassword"/>
+
+            <TextView
+                android:id="@+id/main_forgotLogin"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/forgotPassword"
+                android:text="User name: "
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:visibility="invisible"/>
+
+
+            <EditText
+                android:id="@+id/main_forgotLoginEntry"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/forgotPassword"
+                android:layout_toRightOf="@id/main_forgotLogin"
+                android:hint="Login"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/main_forgotEmail"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/main_forgotLogin"
+                android:text="Email: "
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:visibility="invisible"/>
+
+
+            <EditText
+                android:id="@+id/main_forgotEmailEntry"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/main_forgotLoginEntry"
+                android:layout_toRightOf="@id/main_forgotEmail"
+                android:hint="email"
+                android:visibility="invisible"/>
+
+            <Button
+                android:id="@+id/main_sendMailButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/main_forgotEmailEntry"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom"
+                android:text="Send email"
+                android:onClick="sendEmail"
+                android:visibility="invisible"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

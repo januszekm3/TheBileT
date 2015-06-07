@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/checking_title"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="Checking"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#006600"/>
+
+    <TextView
+        android:id="@+id/checking_plate"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/checking_title"
+        android:text="License plate: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/checking_plateText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/checking_title"
+        android:layout_toRightOf="@id/checking_plate"
+        android:hint="plate"/>
+
+    <TextView
+        android:id="@+id/checking_zone"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/checking_plateText"
+        android:text="Zone: "
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:id="@+id/checking_zoneText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/checking_plate"
+        android:layout_toRightOf="@id/checking_zone"
+        android:hint="zone number"
+        android:password="true"/>
+
+
+    <LinearLayout
+        android:id="@+id/register_buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_below="@id/checking_zoneText"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/register_registerButton"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/checking_zoneText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:text="Check"
+            android:onClick="onCheck"/>
+
+        <Button
+            android:id="@+id/register_back"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/checking_zone"
+            android:layout_toRightOf="@id/register_registerButton"
+            android:layout_gravity="bottom"
+            android:text="Logout"
+            android:onClick="onLogout"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

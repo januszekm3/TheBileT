@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="BileT ConTTrol"
+                android:textSize="40sp"
+                android:textColor="#006600"/>
+
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:text="User name: "
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_below="@+id/logo"/>
+
+
+            <EditText
+                android:id="@+id/login"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/loginText"
+                android:hint="Login"
+                android:layout_below="@+id/logo"
+                android:imeOptions="actionDone"/>
+
+            <TextView
+                android:id="@+id/passwordText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/loginText"
+                android:text="Password: "
+                android:textColor="#000000"
+                android:textSize="20sp"/>
+
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/login"
+                android:layout_toRightOf="@id/passwordText"
+                android:hint="Password"
+                android:password="true"/>
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/passwordText"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="bottom"
+                android:text="Sign in"
+                android:onClick="onLogin"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
